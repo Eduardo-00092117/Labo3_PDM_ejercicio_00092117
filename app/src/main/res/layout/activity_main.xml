@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
-    android:padding="32dp">
+    android:padding="@dimen/size_large">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        android:paddingRight="5px" >
+        android:paddingRight="@dimen/size_low" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registro"
-            android:textSize="32dp"
+            android:textSize="@dimen/size_large"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
             android:gravity="center"/>
 
         <TextView
@@ -29,7 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/user"
-            android:drawablePadding="8dp"/>
+            android:drawablePadding="@dimen/size_low"
+            android:singleLine="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +45,8 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/pass"
             android:password="true"
-            android:drawablePadding="8dp"/>
+            android:singleLine="true"
+            android:drawablePadding="@dimen/size_low"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/email"
-            android:drawablePadding="8dp"/>
+            android:singleLine="true"
+            android:drawablePadding="@dimen/size_low"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,19 +68,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
+            android:layout_marginTop="@dimen/size_low"
+            android:layout_marginBottom="@dimen/size_medium">
 
             <RadioButton
                 android:id="@+id/rd_male"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Male"/>
 
             <RadioButton
                 android:id="@+id/rd_female"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Female"/>
 
         </RadioGroup>
@@ -84,6 +92,9 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/send"
             android:text="Send"
+            android:background="@color/button_red"
+            android:textColor="@color/text_color_white"
+            android:padding="@dimen/size_low"
             android:layout_gravity="center"/>
 
     </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".InformationView"
     android:scrollbars="vertical"
-    android:padding="32dp">
+    android:padding="@dimen/size_large">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,61 +16,63 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Información de Registro"
-            android:textSize="32dp"
-            android:layout_marginBottom="32dp"/>
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
+            android:text="Información"
+            android:textSize="@dimen/size_large"
+            android:layout_marginBottom="@dimen/size_large"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UserName"
-            android:textSize="16dp"
+            android:textSize="@dimen/size_medium"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="@color/color_black"/>
         <TextView
             android:id="@+id/tv_user_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="@dimen/size_large"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:textSize="16dp"
+            android:textSize="@dimen/size_medium"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="@color/color_black"/>
         <TextView
             android:id="@+id/tv_pass_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="@dimen/size_large"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:textSize="16dp"
+            android:textSize="@dimen/size_medium"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="@color/color_black"/>
         <TextView
             android:id="@+id/tv_email_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="@dimen/size_large"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gender"
-            android:textSize="16dp"
+            android:textSize="@dimen/size_medium"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="@color/color_black"/>
         <TextView
             android:id="@+id/tv_gender_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="@dimen/size_large"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,12 +83,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Back"
+                android:background="@color/button_red"
+                android:textColor="@color/text_color_white"
+                android:padding="@dimen/size_low"
+                android:layout_marginRight="@dimen/size_low"
                 android:drawableLeft="@drawable/back"/>
             <Button
                 android:id="@+id/bt_share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Share"
+                android:background="@color/button_red"
+                android:textColor="@color/text_color_white"
+                android:padding="@dimen/size_low"
+                android:layout_marginLeft="@dimen/size_low"
                 android:drawableLeft="@drawable/share"/>
         </LinearLayout>
 
