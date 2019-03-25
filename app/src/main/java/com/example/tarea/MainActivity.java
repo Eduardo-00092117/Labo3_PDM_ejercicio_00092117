@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.regex.Matcher;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mButton;
     private TextView mUser, mPass, mEmail, mGender;
+    private RadioButton mMale, mFemale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +27,28 @@ public class MainActivity extends AppCompatActivity {
         mUser = findViewById(R.id.et_user);
         mPass = findViewById(R.id.et_password);
         mEmail = findViewById(R.id.et_email);
-        mGender = findViewById(R.id.et_gender);
+        mMale = findViewById(R.id.rd_male);
+        mFemale = findViewById(R.id.rd_female);
+        mGender = findViewById(R.id.rd_male);
+
+        mMale.setOnClickListener(v ->{
+            mGender = findViewById(R.id.rd_male);
+        });
+
+        mFemale.setOnClickListener(v -> {
+            mGender = findViewById(R.id.rd_female);
+        });
 
         mButton.setOnClickListener(v -> {
-            Intent mIntent = new Intent(MainActivity.this, InformationView.class);
-            mIntent.putExtra(AppConstants.USER, mUser.getText().toString());
-            mIntent.putExtra(AppConstants.PASS, mPass.getText().toString());
-            mIntent.putExtra(AppConstants.EMAIL, mEmail.getText().toString());
-            mIntent.putExtra(AppConstants.GENDER, mGender.getText().toString());
-
             if (!mUser.getText().toString().isEmpty() && !mPass.getText().toString().isEmpty()
-            && !mEmail.getText().toString().isEmpty() && !mGender.getText().toString().isEmpty()){
+            && !mEmail.getText().toString().isEmpty() && mMale.isChecked() || mFemale.isChecked()){
                 if (validatePassword(mEmail.getText().toString())){
-                    if(validateGender(mGender.getText().toString())){
-                        startActivity(mIntent);
-                    }
+                    Intent mIntent = new Intent(MainActivity.this, InformationView.class);
+                    mIntent.putExtra(AppConstants.USER, mUser.getText().toString());
+                    mIntent.putExtra(AppConstants.PASS, mPass.getText().toString());
+                    mIntent.putExtra(AppConstants.EMAIL, mEmail.getText().toString());
+                    mIntent.putExtra(AppConstants.GENDER, mGender.getText().toString());
+                    startActivity(mIntent);
                 }
             } else{
                 Toast.makeText(MainActivity.this,"Debe llenar todos sus datos!!!", Toast.LENGTH_SHORT).show();
@@ -61,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    private boolean validateGender(String gender){
+    /*private boolean validateGender(String gender){
         if(gender.toLowerCase().equals("male")){
             return true;
         } else if(gender.toLowerCase().equals("female")){
@@ -69,5 +78,5 @@ public class MainActivity extends AppCompatActivity {
         }
         Toast.makeText(MainActivity.this,"El genero no es valido!!!", Toast.LENGTH_SHORT).show();
         return false;
-    }
+    }*/
 }
